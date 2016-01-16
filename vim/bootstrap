@@ -1,0 +1,9 @@
+#!/bin/sh
+
+source helpers
+
+
+info 'Installing VIM Vundle'
+mkdir -p ~/.vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+success 'Done'

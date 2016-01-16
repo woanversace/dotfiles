@@ -16,18 +16,24 @@ if [[ $choice =~ ^[nN]$ ]]; then
 fi
 
 if [[ ! $SHELL == '/bin/zsh' ]]; then
-  info 'Installing Oh My Zsh'
+  info "Installing Oh My Zsh (you'll to relaunch your shell)"
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   success 'Done'
+fi
+
+if [[ ! $(pwd) == "$HOME/dotfiles" ]]; then
+  info 'Symlinking dotfile folder'
+  ln -sf $(pwd) "$HOME/dotfiles"
+  success "linked $(pwd) to $HOME/dotfiles"
 fi
 
 # Symlinks all dotfiles
 symlinker
 
 # Move config folder
-#info 'Symlinking .config'
-#ln -sf "$(pwd)/config/" "$HOME/.config/"
-#success "linked $(pwd)/config to $HOME/.config"
+# info 'Symlinking .config'
+
+source vim/boostrap
 
 # Configure OSX
 user 'Do you want to configure OSX? (Y/n) '
@@ -329,9 +335,6 @@ if [[ $choice =~ ^[yY]$ ]]; then
 
   defaults write com.apple.dock no-bouncing -bool true
   success 'Disable Dock icons bounce animation'
-
-  defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-  success "Don’t display the annoying prompt when quitting iTerm"
 
   for app in "Activity Monitor" "cfprefsd" "Dock" "Finder" "Safari" "SystemUIServer"; do
       killall "${app}" > /dev/null 2>&1

@@ -1,6 +1,6 @@
 # all of our zsh files
 typeset -U config_files
-config_files=($(pwd)/**/*.zsh)
+config_files=(~/dotfiles/**/*.zsh)
 
 # load everything but the path and completion files
 for file in ${config_files:#*/completion.zsh}; do
@@ -27,6 +27,6 @@ export ZSH=/Users/romainlanz/.oh-my-zsh
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-plugins=(git)
+#plugins=(git)
 
 source $ZSH/oh-my-zsh.sh

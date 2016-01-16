@@ -3,7 +3,7 @@
 source helpers
 
 info "Installing Atom's plugins"
-source atom/plugins
+source config/atom/plugins
 
 info "Copying Atom's configuration"
 ln -sf "$(pwd)/config.cson" "$HOME/.atom/config.cson"

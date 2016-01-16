@@ -1,1 +1,52 @@
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'wavded/vim-stylus'
+Plugin 'sjl/gundo.vim'
+call vundle#end()
+
 syntax on
+" colorscheme xterm-256color
+set tabstop=2
+set softtabstop=2
+set expandtab
+set number
+set showcmd
+set cursorline
+filetype indent on
+set wildmenu
+set lazyredraw
+set showmatch
+set incsearch
+set hlsearch
+
+nnoremap <leader><space> :nohlsearch<CR>
+
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+nnoremap <space> za
+set foldmethod=indent
+
+nnoremap gV `[v`]
+
+let mapleader=","
+inoremap jk <esc>
+
+nnoremap <leader>u :GundoToggle<CR>
+
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+source helpers
+
+info 'Configuring Übersicht'
+ln -sf "$HOME/dotfiles/ubersicht/widgets" "$HOME/Library/Application Support/Übersicht/widgets"
+success "linked $HOME/dotfiles/ubersicht/widgets to $HOME/Library/Application Support/Übersicht/widgets"

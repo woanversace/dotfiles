@@ -113,6 +113,7 @@ if [[ $choice =~ ^[yY]$ ]]; then
   brew install pipes-sh > /dev/null
   brew install httperf > /dev/null
   brew install composer > /dev/null
+  brew install tree > /dev/null
   success 'Done'
 
   info 'Remove outdated versions from the cellar'
@@ -143,6 +144,7 @@ if [[ $choice =~ ^[yY]$ ]]; then
 
     info 'Installing Übersicht'
     brew cask install ubersicht > /dev/null
+    source ubersicht/bootstrap
     success 'Done'
 
     info 'Installing Evernote'
@@ -156,6 +158,7 @@ if [[ $choice =~ ^[yY]$ ]]; then
     mv iTerm2.app /Applications/iTerm2.app
     cd ..
     rm -rf iterm2-borderless-padding
+    source iterm2/bootstrap
     success 'Done'
 
     info 'Installing mpv'
@@ -164,6 +167,10 @@ if [[ $choice =~ ^[yY]$ ]]; then
 
     info 'Installing Slack'
     brew cask install slack > /dev/null
+    success 'Done'
+
+    info 'Installing Gitter'
+    brew cask install gitter > /dev/null
     success 'Done'
 
     info 'Installing Spectacle'

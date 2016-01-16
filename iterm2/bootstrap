@@ -1,0 +1,11 @@
+#!/bin/sh
+
+source helpers
+
+info 'Configuring iTerm2'
+
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+success "Don’t display the annoying prompt when quitting iTerm"
+
+defaults write com.googlecode.iterm2 UseBorder -bool false
+success "Remove borders"
