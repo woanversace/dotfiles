@@ -91,3 +91,8 @@ alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resour
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done

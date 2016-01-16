@@ -111,7 +111,6 @@ if [[ $choice =~ ^[yY]$ ]]; then
   brew install siege > /dev/null
   brew install screenfetch > /dev/null
   brew install pipes-sh > /dev/null
-  brew install httpie > /dev/null
   brew install httperf > /dev/null
   brew install composer > /dev/null
   success 'Done'
