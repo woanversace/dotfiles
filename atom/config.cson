@@ -1,0 +1,35 @@
+"*":
+  "atom-beautify":
+    analytics: false
+  "atom-material-ui":
+    fonts: {}
+    tabs: {}
+    treeView:
+      compactList: true
+    ui:
+      panelShadows: true
+  core:
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
+  editor:
+    fontFamily: "Fira Code"
+    fontSize: 17
+    invisibles: {}
+    showInvisibles: true
+    tabLength: 2
+  emmet: {}
+  "exception-reporting":
+    userId: "587cf61f-53a9-6c54-9b1c-6bd5be328326"
+  "git-diff":
+    showIconsInEditorGutter: true
+  "ide-flow": {}
+  minimap:
+    plugins:
+      "git-diff": true
+  react: {}
+  "tree-view":
+    hideVcsIgnoredFiles: false
+  welcome:
+    showOnStartup: false

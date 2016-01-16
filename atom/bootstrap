@@ -1,0 +1,12 @@
+#!/bin/sh
+
+source helpers
+
+info "Installing Atom's plugins"
+source atom/plugins
+
+info "Copying Atom's configuration"
+ln -sf "$(pwd)/config.cson" "$HOME/.atom/config.cson"
+success "linked $(pwd)/config.cson to $HOME/.atom/config.cson"
+ln -sf "$(pwd)/keymap.cson" "$HOME/.atom/keymap.cson"
+success "linked $(pwd)/keymap.cson to $HOME/.atom/keymap.cson"

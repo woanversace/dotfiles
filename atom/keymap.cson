@@ -1,0 +1,3 @@
+'atom-workspace':
+    'alt-g': 'native!'
+    'tab': 'emmet:expand-abbreviation'

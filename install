@@ -1,0 +1,216 @@
+#!/bin/sh
+
+source helpers
+
+echo 'Welcome to the @romainlanz installation script!'
+echo 'This script will install a lot of package and softwares without asking any questions.'
+echo "It's better to run this script on a fresh OSX installation."
+
+user 'Are you sure to continue? (y/N) '
+read -n 1 choice
+choice=${choice:-N}
+printf "\n"
+
+if [[ $choice =~ ^[nN]$ ]]; then
+  exit $?
+fi
+
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+user 'Install Homebrew and some packages? (Y/n) '
+read -n 1 choice
+choice=${choice:-Y}
+printf "\n"
+
+if [[ $choice =~ ^[yY]$ ]]; then
+  if test ! $(which brew); then
+    info 'Installing Homebrew for you'
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  brew install caskroom/cask/brew-cask > /dev/null
+  brew tap caskroom/versions > /dev/null
+
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+  info "Make sure we’re using the latest Homebrew"
+  brew update
+
+  info 'Upgrade any already-installed formulae'
+  brew upgrade
+
+  info 'Installing useful packages'
+
+  info 'Installing GNU core utilities (those that come with OS X are outdated)'
+  brew install coreutils > /dev/null
+  sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+  success 'Done'
+
+  info "Installing some other useful utilities like 'sponge'"
+  brew install moreutils > /dev/null
+  success 'Done'
+
+  info "Installing GNU 'find', 'locate', 'updatedb', and 'xargs', 'g'-prefixed"
+  brew install findutils > /dev/null
+  success 'Done'
+
+  info "Installing GNU 'sed', overwriting the built-in 'sed'"
+  brew install gnu-sed --with-default-names > /dev/null
+  success 'Done'
+
+  info "Installing Bash 4"
+  brew install bash > /dev/null
+  brew install bash-completion > /dev/null
+  echo "/usr/local/bin/bash" | sudo tee -a /etc/shells > /dev/null
+  success 'Done'
+
+  info "Installing 'wget' with IRI support"
+  brew install wget --with-iri > /dev/null
+  success 'Done'
+
+  info 'Installing more recent versions of some OS X tools'
+  brew install vim --override-system-vi > /dev/null
+  brew install homebrew/dupes/grep > /dev/null
+  brew install homebrew/dupes/openssh > /dev/null
+  brew install homebrew/dupes/screen > /dev/null
+  success 'Done'
+
+  info 'Installing some CTF tools'
+  brew install aircrack-ng > /dev/null
+  brew install bfg > /dev/null
+  brew install binutils > /dev/null
+  brew install binwalk > /dev/null
+  brew install cifer > /dev/null
+  brew install dex2jar > /dev/null
+  brew install dns2tcp > /dev/null
+  brew install ettercap > /dev/null
+  brew install fcrackzip > /dev/null
+  brew install foremost > /dev/null
+  brew install hashpump > /dev/null
+  brew install hydra > /dev/null
+  brew install john > /dev/null
+  brew install knock > /dev/null
+  brew install netpbm > /dev/null
+  brew install nmap > /dev/null
+  brew install pngcheck > /dev/null
+  brew install socat > /dev/null
+  brew install sqlmap > /dev/null
+  brew install tcpflow > /dev/null
+  brew install tcpreplay > /dev/null
+  brew install tcptrace > /dev/null
+  brew install ucspi-tcp > /dev/null
+  brew install xz > /dev/null
+  success 'Done'
+
+  info 'Installing other useful binaries'
+  brew install ack > /dev/null
+  brew install git > /dev/null
+  brew install imagemagick --with-webp > /dev/null
+  brew install ffmpeg --with-libvpx > /dev/null
+  brew install siege > /dev/null
+  brew install screenfetch > /dev/null
+  brew install pipes-sh > /dev/null
+  brew install httpie > /dev/null
+  brew install httperf > /dev/null
+  brew install composer > /dev/null
+  success 'Done'
+
+  info 'Remove outdated versions from the cellar'
+  brew cleanup > /dev/null
+
+  user 'Install some softwares? (Y/n) '
+  read -n 1 choice
+  choice=${choice:-Y}
+  printf "\n"
+
+  if [[ $choice =~ ^[yY]$ ]]; then
+    info 'Installing Alfred'
+    brew cask install alfred > /dev/null
+    success 'Done'
+
+    info 'Installing Alfred'
+    brew cask install alfred > /dev/null
+    success 'Done'
+
+    info 'Installing AppCleaner'
+    brew cask install appcleaner > /dev/null
+    success 'Done'
+
+    info 'Installing Atom'
+    brew cask install atom > /dev/null
+    source atom/bootstrap
+    success 'Done'
+
+    info 'Installing Übersicht'
+    brew cask install ubersicht > /dev/null
+    success 'Done'
+
+    info 'Installing Evernote'
+    brew cask install evernote > /dev/null
+    success 'Done'
+
+    info 'Installing iTerm2 Borderless'
+    git clone https://github.com/jaredculp/iterm2-borderless-padding > /dev/null
+    cd iterm2-borderless-padding
+    make > /dev/null
+    mv iTerm2.app /Applications/iTerm2.app
+    cd ..
+    rm -rf iterm2-borderless-padding
+    success 'Done'
+
+    info 'Installing mpv'
+    brew cask install mpv > /dev/null
+    success 'Done'
+
+    info 'Installing Slack'
+    brew cask install slack > /dev/null
+    success 'Done'
+
+    info 'Installing Spectacle'
+    brew cask install spectacle > /dev/null
+    success 'Done'
+
+    info 'Installing Google Chrome'
+    brew cask install google-chrome > /dev/null
+    success 'Done'
+
+    info 'Installing Virtualbox'
+    brew cask install virtualbox > /dev/null
+    success 'Done'
+
+    info 'Installing Vagrant'
+    brew cask install vagrant
+    success 'Done'
+
+    info 'Installing Skype'
+    brew cask install skype
+    success 'Done'
+
+    info 'Installing TeamViewer'
+    brew cask install teamviewer
+    success 'Done'
+  fi
+
+fi
+
+info 'Installing NVM (Node Version Manager)'
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash > /dev/null
+source $(brew --prefix nvm)/nvm.sh
+success 'Done'
+
+info 'Installing latest NodeJS version'
+nvm install node > /dev/null
+nvm alias default node > /dev/null
+success 'Done'
+
+info 'Installing IED (alternative package manager for NodeJS)'
+npm i -g ied > /dev/null
+success 'Done'
+
+info 'Installing RVM with the latest Rails release'
+curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enable > /dev/null
+success 'Done'
+
+echo ''
+success 'All done! :)'

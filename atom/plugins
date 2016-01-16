@@ -1,0 +1,25 @@
+#!/bin/sh
+
+source helpers
+
+if test ! $(which apm); then
+  fail 'Atom is not correctly installed'
+else
+  apm install Stylus
+  apm install atom-beautify
+  apm install atom-jade
+  apm install atom-material-ui
+  apm install editorconfig
+  apm install emmet
+  apm install file-type-icons
+  apm install language-babel
+  apm install language-ejs
+  apm install language-javascript-jsx
+  apm install language-vue
+  apm install line-diff-details
+  apm install minimap
+  apm install minimap-git-diff
+  apm install pigments
+  apm install travis-ci-status
+  apm install vim-mode
+fi

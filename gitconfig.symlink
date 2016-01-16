@@ -1,0 +1,14 @@
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+[core]
+  excludesfile = ~/.gitignore
+[user]
+  name = Romain Lanz
+  email = romain.lanz@slynova.ch
+  signinkey = 45DD2CDD
+[push]
+  default = current
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
