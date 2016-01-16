@@ -4,6 +4,9 @@ source helpers
 
 info 'Configuring iTerm2'
 
+ln -sf "$HOME/dotfiles/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Prefences/com.googlecode.iterm2.plist"
+success "linked $HOME/dotfiles/iterm2/com.googlecode.iterm2.plist to $HOME/Library/Prefences/com.googlecode.iterm2.plist"
+
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 success "Don’t display the annoying prompt when quitting iTerm"
 

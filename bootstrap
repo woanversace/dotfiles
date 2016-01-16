@@ -35,6 +35,8 @@ symlinker
 
 source vim/boostrap
 
+source moom/boostrap
+
 # Configure OSX
 user 'Do you want to configure OSX? (Y/n) '
 read -n 1 choice

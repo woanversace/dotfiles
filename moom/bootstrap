@@ -1,0 +1,7 @@
+#!/bin/sh
+
+source helpers
+
+info 'Configuring Moom'
+ln -sf "$HOME/dotfiles/moom/com.manytricks.Moom.plist" "$HOME/Library/Prefences/com.manytricks.Moom.plist"
+success "linked $HOME/dotfiles/moom/com.manytricks.Moom.plist to $HOME/Library/Prefences/com.manytricks.Moom.plist"

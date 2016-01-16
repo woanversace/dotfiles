@@ -152,13 +152,7 @@ if [[ $choice =~ ^[yY]$ ]]; then
     success 'Done'
 
     info 'Installing iTerm2 Borderless'
-    git clone https://github.com/jaredculp/iterm2-borderless-padding > /dev/null
-    cd iterm2-borderless-padding
-    make > /dev/null
-    mv iTerm2.app /Applications/iTerm2.app
-    cd ..
-    rm -rf iterm2-borderless-padding
-    source iterm2/bootstrap
+    brew cask install iterm2-beta > /dev/null
     success 'Done'
 
     info 'Installing mpv'
