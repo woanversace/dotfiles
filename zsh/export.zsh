@@ -8,9 +8,10 @@ export MANPAGER="less -X"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
-export NVM_DIR="~/.nvm"
-source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR=~/.nvm
+  . $(brew --prefix nvm)/nvm.sh
 
+export PATH="node_modules/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.node/bin:$PATH"
