@@ -15,7 +15,7 @@ cd; git clone https://github.com/Woanversace/dotfiles; cd dotfiles; ./bootstrap
 ```shell
 cd; curl -#L https://github.com/Woanversace/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md}; ./boostrap
 ```
-> Have no idea why @romainLanz remove his repo. So if you get erorr, please reconfig the romainlanz's URL to this repo.
+> Have no idea why @romainLanz removed his repo. So if you get erorr, please reconfig the romainlanz's URL to this repo.
 
 ## Softwares
 
