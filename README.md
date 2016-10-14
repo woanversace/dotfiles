@@ -7,15 +7,15 @@
 ### Using GIT
 
 ```shell
-cd; git clone https://github.com/RomainLanz/dotfiles; cd dotfiles; ./bootstrap
+cd; git clone https://github.com/Woanversace/dotfiles; cd dotfiles; ./bootstrap
 ```
 
 ### Without GIT
 
 ```shell
-cd; curl -#L https://github.com/RomainLanz/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md}; ./boostrap
+cd; curl -#L https://github.com/Woanversace/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md}; ./boostrap
 ```
-
+> Have no idea why @romainLanz remove his repo.
 ## Softwares
 
 Here's a list of software that I use.
